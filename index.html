@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm Kỷ Niệm 8/3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen" class="container">
+        <h1 class="glitch">PROJECT TESSERACT</h1>
+        <p>Nhập mật mã để truy cập hố đen kỷ niệm</p>
+        <input type="text" id="username" placeholder="Tên đăng nhập (Vd: quynhtien)">
+        <input type="password" id="password" placeholder="Mật khẩu">
+        <button onclick="checkAccess()">TRUY CẬP</button>
+        <p id="error-msg" style="color: #ff4d4d; display: none;">Mật mã không đúng, hãy thử lại!</p>
+    </div>
+
+    <div id="private-content" class="container" style="display: none;">
+        <h1 id="welcome-name"></h1>
+        <div class="wish-box">
+            <p id="personal-wish"></p>
+        </div>
+        <div id="photo-gallery" class="gallery">
+            </div>
+        <button onclick="location.reload()">QUAY LẠI</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
