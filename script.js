@@ -1,7 +1,7 @@
 const database = {
     "quynhtien": {
-        pass: "2008", // Thay bằng mật khẩu em muốn
-        name: "Quỳnh Tiên",
+        pass: "0000", // Thay bằng mật khẩu em muốn
+        name: "quynhtien",
         wish: "Chúc Tiên luôn rạng rỡ và đỗ vào trường CNTT giống tớ nhé!",
         images: ["img/tien1.jpg", "img/tien2.jpg"] // Đường dẫn ảnh
     },
