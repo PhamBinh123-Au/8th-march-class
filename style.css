@@ -1,0 +1,49 @@
+body {
+    background: #000; /* Màu đen vũ trụ */
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    border: 1px solid #333;
+    padding: 40px;
+    background: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    background: #111;
+    border: 1px solid #444;
+    color: cyan;
+}
+
+button {
+    padding: 10px 20px;
+    background: cyan;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.gallery img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 5px;
+    filter: grayscale(50%);
+    transition: 0.5s;
+}
+
+.gallery img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
