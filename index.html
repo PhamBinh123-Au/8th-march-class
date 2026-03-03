@@ -3,28 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trạm Kỷ Niệm 8/3</title>
+    <title>Tesseract - Ký ức 12A...</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="login-screen" class="container">
-        <h1 class="glitch">PROJECT TESSERACT</h1>
-        <p>Nhập mật mã để truy cập hố đen kỷ niệm</p>
-        <input type="text" id="username" placeholder="Tên đăng nhập (Vd: quynhtien)">
-        <input type="password" id="password" placeholder="Mật khẩu">
-        <button onclick="checkAccess()">TRUY CẬP</button>
-        <p id="error-msg" style="color: #ff4d4d; display: none;">Mật mã không đúng, hãy thử lại!</p>
-    </div>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
 
-    <div id="private-content" class="container" style="display: none;">
-        <h1 id="welcome-name"></h1>
-        <div class="wish-box">
-            <p id="personal-wish"></p>
+    <section id="login-screen" class="glass-card">
+        <div class="logo-container">
+            <h1 class="glow-text">PROJECT TESSERACT</h1>
+            <div class="sub-line">Data Transmission // Class of 2026</div>
         </div>
-        <div id="photo-gallery" class="gallery">
+        
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Định danh (Vd: quynhtien)" autocomplete="off">
+            <input type="password" id="password" placeholder="Mật mã không gian">
+            <button onclick="checkAccess()" class="btn-launch">TRUY CẬP</button>
+        </div>
+        <p id="error-msg" class="error">Tín hiệu bị nhiễu. Vui lòng kiểm tra lại mật mã!</p>
+    </section>
+
+    <section id="private-content" style="display: none;">
+        <div class="glass-card content-box">
+            <h2 id="welcome-name" class="glow-text"></h2>
+            <div class="wish-container">
+                <p id="personal-wish"></p>
             </div>
-        <button onclick="location.reload()">QUAY LẠI</button>
-    </div>
+            <div id="photo-gallery" class="gallery">
+                </div>
+            <button onclick="location.reload()" class="btn-back">TRỞ LẠI TRÁI ĐẤT</button>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
