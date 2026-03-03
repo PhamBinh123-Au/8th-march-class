@@ -15,10 +15,32 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-/* Hiệu ứng mờ ảo Glassmorphism */
+/* Hiệu ứng Vũ trụ động */
+.stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    display: block; z-index: -1;
+}
+
+.stars { background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center; }
+.twinkling {
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+    animation: move-twink-back 200s linear infinite;
+}
+.clouds {
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/clouds.png') repeat top center;
+    animation: move-clouds-back 200s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes move-twink-back { from {background-position:0 0;} to {background-position:-10000px 5000px;} }
+@keyframes move-clouds-back { from {background-position:0 0;} to {background-position:10000px 0;} }
+
+/* Giao diện Kính mờ (Glassmorphism) */
 .glass-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
@@ -27,122 +49,43 @@ body {
     padding: 40px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
     text-align: center;
-    max-width: 500px;
-    width: 90%;
+    max-width: 500px; width: 90%;
     animation: fadeIn 1.5s ease-out;
 }
 
-.glow-text {
+.glitch {
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 5px;
-    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
-    margin-bottom: 5px;
+    text-shadow: 0 0 10px var(--primary-color);
+    animation: glitch-anim 2s infinite;
 }
 
-/* Input và Button hiện đại */
-input {
-    width: 80%;
-    padding: 12px;
-    margin: 15px 0;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    color: white;
-    outline: none;
-    transition: 0.3s;
-}
-
-input:focus {
-    box-shadow: 0 0 15px var(--primary-color);
-}
-
-.btn-launch {
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-    transition: 0.4s;
-}
-
-.btn-launch:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--primary-color);
-}
-
-/* Gallery ảnh mượt mà */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.gallery img {
-    width: 100%;
-    border-radius: 10px;
-    transition: 0.5s;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.gallery img:hover {
-    transform: rotate(2deg) scale(1.1);
-    border-color: var(--primary-color);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-/* --- HIỆU ỨNG VŨ TRỤ ĐỘNG --- */
-.stars, .twinkling, .clouds {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: -1; /* Đẩy ra sau cùng */
-}
-
-.stars {
-  background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
-}
-
-.twinkling {
-  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
-  animation: move-twink-back 200s linear infinite;
-}
-
-.clouds {
-    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/clouds.png') repeat top center;
-    animation: move-clouds-back 200s linear infinite;
-    opacity: 0.4;
-}
-
-@keyframes move-twink-back {
-    from { background-position: 0 0; }
-    to { background-position: -10000px 5000px; }
-}
-
-@keyframes move-clouds-back {
-    from { background-position: 0 0; }
-    to { background-position: 10000px 0; }
-}
-
-/* --- HIỆU ỨNG GLITCH CHO CHỮ --- */
-.glitch {
-    position: relative;
-    animation: glitch-animation 2s infinite;
-}
-
-@keyframes glitch-animation {
+@keyframes glitch-anim {
     0% { text-shadow: 2px 0 0 red, -2px 0 0 blue; }
     50% { text-shadow: -2px 0 0 red, 2px 0 0 blue; }
     100% { text-shadow: 2px 0 0 red, -2px 0 0 blue; }
 }
+
+/* Input & Button */
+input {
+    width: 80%; padding: 12px; margin: 15px 0;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px; color: white; outline: none;
+}
+
+.btn-launch {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: white; border: none; padding: 12px 30px;
+    border-radius: 5px; cursor: pointer; font-family: 'Orbitron', sans-serif;
+    transition: 0.4s;
+}
+
+.btn-launch:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--primary-color); }
+
+/* Gallery */
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 20px; }
+.gallery img { width: 100%; border-radius: 8px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.2); }
+.gallery img:hover { transform: scale(1.05); border-color: var(--primary-color); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
